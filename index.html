@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="referrer" content="never">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, user-scalable=no">
+		<title>GAME</title>
+		<style type="text/css">
+			#APP{
+				width:100vw;
+				height:400vw;
+				border:1vw solid #333;
+				background: url("https://hbimg.huabanimg.com/2ddf6cf49c5156ac997c3534b0075e3aa59b8ace13ec6-0pKtDR") no-repeat fixed;
+				background-size: cover;
+				
+				position:fixed;
+				left:0vw;
+				top:0vw;
+			}
+			#p1{
+				/* display: none; */
+			}
+			.heroBack{
+				width:90vw;
+				height:24vw;
+				border:0.6vw solid #fff;
+				background-color: rgba(77,81,90,0.3);
+			}
+			#heroBack1{
+				position:fixed;
+				left:50vw;
+				top:14vw;
+				margin-left:-45.6vw;
+			}
+			#heroBack2{
+				position:fixed;
+				left:50vw;
+				top:44vw;
+				margin-left:-45.6vw;
+			}
+			.hero{
+				width:40vw;
+				height:40vw;
+				z-index: 99;
+			}
+			#hero1{
+				position:fixed;
+				left:16vw;
+				top:0vw;
+				margin-left:-13vw;
+			}
+			#hero2{
+				position:fixed;
+				left:16vw;
+				top:30vw;
+				margin-left:-13vw;
+			}
+			.p1name{
+				font-size:5vw;
+				color: #ffffff;
+			}
+			#p1name1{
+				position:fixed;
+				left:42vw;
+				top:18vw;
+			}
+			#p1name2{
+				position:fixed;
+				left:42vw;
+				top:48vw;
+			}
+			.p1look{
+				font-size:4vw;
+				color: #ffffff;
+			}
+			#p1look1{
+				position:fixed;
+				left:42vw;
+				top:28vw;
+			}
+			#p1look2{
+				position:fixed;
+				left:42vw;
+				top:58vw;
+			}
+			.chose{
+				padding: 1.5vw 6vw;
+				border:0.6vw solid #ffffff;
+				background-image:linear-gradient(to bottom right, rgba(254,219,76,1), rgba(240,103,180,1));
+				border-radius: 1000px;
+				box-shadow:0vw 1vw 2vw rgb(0 0 0 / 20%);
+				
+				font-size:4.6vw;
+				color: #ffffff;
+				text-align: center;
+			}
+			#chose1{
+				position:fixed;
+				right:2vw;
+				top:26vw;
+			}
+			#chose2{
+				position:fixed;
+				right:2vw;
+				top:56vw;
+			}
+			
+			.img{
+				display: none;
+				z-index: 999;
+				width:90vw;
+				height:135vw;
+				box-shadow:0vw 0vw 30vw rgb(0 0 0 / 50%);
+				
+				position:fixed;
+				left:50vw;
+				top:20vw;
+				margin-left:-45vw;
+			}
+			
+			
+			#p2{
+				display: none;
+			}
+			.notuse{
+				padding: 1.6vw 4vw;
+				border:0.6vw solid #ffffff;
+				background-color: rgba(0,0,0,0);
+				border-radius: 2vw;
+				
+				font-size:4vw;
+				color: #ffffff;
+				text-align: center;
+			}
+			#look2{
+				font-size:4vw;
+				color: #ffffff;
+				
+				position:fixed;
+				right:42vw;
+				top:12vw;
+			}
+			#name2{			
+				position:fixed;
+				right:6vw;
+				top:10vw;
+			}
+			#hp2{
+				padding: 1.6vw 10.5vw 1.6vw 2vw;
+				position:fixed;
+				right:6vw;
+				top:22vw;
+			}
+			#hp02{
+				padding: 1.6vw 10vw;
+				border:0vw solid #ffffff;
+				background-color: rgba(0,0,0,0);
+				
+				font-size:4vw;
+				color: #ffffff;
+				
+				position:fixed;
+				right:0vw;
+				top:22.4vw;
+			}
+			#p2back{
+				width: 88vw;
+				height: 50vw;
+				border:0vw solid #000;
+				background-color: rgba(40,44,53,1);
+				border-radius: 2vw;
+				
+				position:fixed;
+				left:50vw;
+				top:35vw;
+				margin-left:-44vw;
+			}
+			.p2hero{
+				width: 30vw;
+				height: 30vw;
+				display: none;
+				
+				position:fixed;
+				left:14vw;
+				top:50vw;
+			}
+			#p2p{
+				width: 30vw;
+				height: 30vw;
+				display: block;
+				
+				position:fixed;
+				right:16vw;
+				top:40vw;
+			}
+			#p2g{
+				width: 30vw;
+				height: 30vw;
+				display: none;
+				
+				position:fixed;
+				right:16vw;
+				top:40vw;
+			}
+			#look1{
+				font-size:4vw;
+				color: #ffffff;
+				
+				position:fixed;
+				left:43.2vw;
+				top:92vw;
+			}
+			#name1{
+				position:fixed;
+				left:6vw;
+				top:90vw;
+			}
+			#hp1{
+				padding: 1.6vw 10.5vw 1.6vw 2vw;
+				position:fixed;
+				left:6vw;
+				top:102vw;
+			}
+			#hp01{
+				padding: 1.6vw 10vw;
+				border:0vw solid #ffffff;
+				background-color: rgba(0,0,0,0);
+				
+				font-size:4vw;
+				color: #ffffff;
+				
+				position:fixed;
+				left:6vw;
+				top:102.4vw;
+			}
+			#mp1{
+				padding: 1.6vw 6.25vw 1.6vw 6.25vw;
+				position:fixed;
+				left:28.5vw;
+				top:102vw;
+			}
+			.use{
+				padding: 4vw 4vw;
+				border:0.6vw solid #ffffff;
+				background-color: rgba(152,81,249,1);
+				border-radius: 4vw;
+				
+				font-size:5vw;
+				color: #ffffff;
+				text-align: center;
+			}
+			#skill0{
+				padding: 1.6vw 4vw;
+				border:0.6vw solid #ffffff;
+				background-color: rgba(26,183,250,1);
+				border-radius: 3vw;
+				
+				font-size:5vw;
+				color: #ffffff;
+				text-align: center;
+				
+				position:fixed;
+				right: 6vw;
+				top:100vw;
+			}
+			#skill1{
+				padding: 4vw 4vw;
+				border:0.6vw solid #ffffff;
+				background-color: rgba(0,0,0,0);
+				border-radius: 4vw;
+				
+				font-size:5vw;
+				color: #ffffff;
+				text-align: center;
+				
+				position:fixed;
+				left:6vw;
+				top:116vw;
+			}
+			#skill2{
+				position:fixed;
+				right: 6vw;
+				top:116vw;
+			}
+			#skill3{
+				position:fixed;
+				left:6vw;
+				top:136vw;
+			}
+			#skill4{
+				position:fixed;
+				right: 6vw;
+				top:136vw;
+		</style>
+		
+		<script type="text/javascript">
+			function tolook(){
+				document.getElementById("img00").style.display = "block";
+			}
+			function tolook1(){
+				document.getElementById("img1").style.display = "block";
+			}
+			function tolook2(){
+				document.getElementById("img2").style.display = "block";
+			}
+			
+			function over(){
+				document.getElementById("img00").style.display = "none";
+				document.getElementById("img1").style.display = "none";
+				document.getElementById("img2").style.display = "none";
+			}
+			
+			function chose1(){
+				//页面切换
+				document.getElementById("p1").style.display = "none";
+				document.getElementById("p2").style.display = "block";
+				//选择的英雄的属性传入p2、定义好伤害、护盾、对局等。
+				document.getElementById("hmtf2").style.display = "block";
+				document.getElementById('name1').innerHTML="&#12288;荒漠屠夫&#12288;";
+				var hp01 = 600;
+				document.getElementById('hp01').innerHTML=hp01;
+				var mp1 = 0;
+				document.getElementById('mp1').innerHTML=mp1;
+				var hp02 = 400;
+				document.getElementById('hp02').innerHTML=hp02;
+				var act1 = 1;
+				var act2 = 1;
+				var time = 1;
+				var opponent = 1;
+				var jsbt = 0;
+				//选择的英雄的介绍、技能传入p2、定义好特殊属性
+				document.getElementById("look1").addEventListener("click", function(){
+					document.getElementById("img1").style.display = "block";
+				});
+				
+				document.getElementById('skill1').innerHTML="&#12288;怒之领域&#12288;";
+					var NuQi = 0;
+					document.getElementById('mp1').innerHTML=NuQi;
+				
+				document.getElementById("skill0").addEventListener("click", function(){
+					if(act1>=1){//先判断是否有行动力
+						if(LianKan === 0){
+							hp02 = hp02 - 50;
+							NuQi = NuQi + 20;	
+						}else if(LianKan === 1){
+							hp02 = hp02 - 100;
+							NuQi = NuQi + 50;
+							LianKan = 0;
+						}else if(LianKan === 2){
+							hp02 = hp02 - 150;
+							act2 = 0;
+							LianKan = 0;
+							}
+							
+						document.getElementById('hmtf2').style.display = "none";//动画
+						document.getElementById('hmtf1').style.display = "block";
+						setTimeout(function(){
+							document.getElementById('hmtf1').style.display = "none";
+							document.getElementById('hmtf2').style.display = "block";
+							
+							document.getElementById('hp02').innerHTML=hp02;//动画结束后显示技能结果
+							document.getElementById('mp1').innerHTML=NuQi;
+							document.getElementById('hp01').innerHTML=hp01;
+						}, 500);
+					}else{
+						act1=1;//没有行动力就不攻击，回复行动力至1.
+						}
+				});
+
+
+				document.getElementById('skill2').innerHTML="&#12288;转圈砍人&#12288;";
+				document.getElementById('skill2').addEventListener("click", function(){
+					if(act1>=1){
+							if(NuQi<50){
+								hp02 = hp02 - 50;
+								hp01 = hp01 + 50;
+								NuQi = NuQi + 10;
+							}else{
+								NuQi = NuQi - 50;
+								hp02 = hp02 - 100;
+								hp01 = hp01 + 100;
+								}
+								
+							document.getElementById('hmtf2').style.display = "none";
+							document.getElementById('hmtf3').style.display = "block";
+							setTimeout(function(){
+								document.getElementById('hmtf3').style.display = "none";
+								document.getElementById('hmtf2').style.display = "block";
+								
+								document.getElementById('hp02').innerHTML=hp02;//动画结束后显示技能结果
+								document.getElementById('mp1').innerHTML=NuQi;
+								document.getElementById('hp01').innerHTML=hp01;
+							}, 500);
+					}else{
+						act1=1;
+						}
+				});
+				
+				document.getElementById('skill3').innerHTML="&#12288;&#12288;连砍&#12288;&#12288;";
+				var LianKan = 0;
+				document.getElementById("skill3").addEventListener("click", function(){
+					if(act1>=1){
+						if(NuQi<50){
+							LianKan = 1;
+						}else{
+							LianKan = 2;
+							NuQi = NuQi - 50;
+							}
+							
+						document.getElementById('hmtf2').style.display = "none";
+						document.getElementById('hmtf4').style.display = "block";
+						setTimeout(function(){
+							document.getElementById('hmtf4').style.display = "none";
+							document.getElementById('hmtf2').style.display = "block";
+							
+							document.getElementById('hp02').innerHTML=hp02;//动画结束后显示技能结果
+							document.getElementById('mp1').innerHTML=NuQi;
+							document.getElementById('hp01').innerHTML=hp01;
+						}, 500);
+					}else{
+						act1=1;
+						}
+				});
+				
+				document.getElementById('skill4').innerHTML="&#12288;&#12288;变大&#12288;&#12288;";
+				document.getElementById("skill4").addEventListener("click", function(){
+					if(act1>=1){
+						hp02 = hp02 - 50;
+						hp01 = hp01 + 150;
+						NuQi = NuQi + 50;
+						document.getElementById('skill4').style.pointerEvents = "none";//PP用尽→禁用技能四
+							
+						document.getElementById('hmtf2').style.display = "none";//动画
+						document.getElementById('hmtf5').style.display = "block";
+						setTimeout(function(){
+							document.getElementById('hmtf5').style.display = "none";
+							document.getElementById('hmtf2').style.display = "block";
+								
+							document.getElementById('hp02').innerHTML=hp02;//动画结束后显示技能结果
+							document.getElementById('mp1').innerHTML=NuQi;
+							document.getElementById('hp01').innerHTML=hp01;
+						}, 500);
+					}else{
+						act1=1;
+						}
+				});
+				
+				document.getElementById("skill0").addEventListener("click", levelup);
+				document.getElementById("skill2").addEventListener("click", levelup);
+				document.getElementById("skill3").addEventListener("click", levelup);
+				document.getElementById("skill4").addEventListener("click", levelup);
+				function levelup(){
+					if(hp02<=0){
+						hp01 = hp01 + 300;
+						hp02 = 800;
+						opponent = 2;
+						document.getElementById('p2p').src = "https://hbimg.huabanimg.com/268ba80758383822a0a651c2ba35130a6ac2a76a852-YfPeXx";
+						document.getElementById("name2").innerHTML="&#12288;&nbsp;克苏恩&nbsp;&#12288;";
+						setTimeout(function(){
+							alert("进入下一关");
+							document.getElementById('p2g').src = "https://hbimg.huabanimg.com/f3860de9856b86ec8d0d791348321baa4255f3454b0e-Hf2UhV";
+							document.getElementById('img00').src = "https://hbimg.huabanimg.com/9f4486f623c3e37a0538c8e368f008c390e467c126748-bUE1rK";//换技能介绍图
+						}, 600);
+					}
+				}
+				document.getElementById("skill0").addEventListener("click", toP2);
+				document.getElementById("skill2").addEventListener("click", toP2);
+				document.getElementById("skill3").addEventListener("click", toP2);
+				document.getElementById("skill4").addEventListener("click", toP2);
+				function toP2(){//对方的动作
+					if(opponent===1){//敌人类型，1是触须2是本体
+						if(act2>=1){
+							hp01 = hp01 - 100;
+						document.getElementById('p2p').style.display = "none";
+						document.getElementById('p2g').style.display = "block";
+						setTimeout(function(){
+							document.getElementById('p2g').style.display = "none";//敌方动画
+							document.getElementById('p2p').style.display = "block";
+							
+							document.getElementById('hp02').innerHTML=hp02;//动画结束后显示技能结果
+							document.getElementById('hp01').innerHTML=hp01;
+						}, 500);
+						}else{
+							act2=1;
+							}
+					}else{
+						if(act2>=1){
+							if(jsbt===3){
+								hp01 = hp01 - 150;
+								act1 = 0;
+								jsbt = 0;
+							}else{
+								hp01 = hp01 - 100;
+								jsbt = jsbt + 1;
+								}
+							
+						document.getElementById('p2p').style.display = "none";
+						document.getElementById('p2g').style.display = "block";
+						setTimeout(function(){
+							document.getElementById('p2g').style.display = "none";//敌方动画
+							document.getElementById('p2p').style.display = "block";
+							
+							document.getElementById('hp02').innerHTML=hp02;//动画结束后显示技能结果
+							document.getElementById('hp01').innerHTML=hp01;
+						}, 500);
+						}else{
+							act2=1;
+							}
+						}
+					time = time + 1;
+				}
+				
+				}
+			
+			function chose2(){
+				//页面切换
+				document.getElementById("p1").style.display = "none";
+				document.getElementById("p2").style.display = "block";
+				//选择的英雄的属性传入p2、定义好行动力、对局时长、敌人类型等。
+				document.getElementById("xkldz00").style.display = "block";
+				document.getElementById('name1').innerHTML="&nbsp;虚空掠夺者&nbsp;";
+				var hp01 = 450;
+				document.getElementById('hp01').innerHTML=hp01;
+				var mp1 = 0;
+				document.getElementById('mp1').innerHTML=mp1;
+				var hp02 = 400;
+				document.getElementById('hp02').innerHTML=hp02;
+				var act1 = 1;
+				var act2 = 1;
+				var time = 1;
+				var opponent = 1;
+				var jsbt = 0;
+				//选择的英雄的技能传入p2、定义好特殊属性
+				document.getElementById("look1").addEventListener("click", function(){
+					document.getElementById("img2").style.display = "block";
+				});
+				
+				document.getElementById('skill1').innerHTML="&#12288;无形威胁&#12288;";
+					var wx = 1;
+					var up = 0;
+					if(up === 0){
+						alert("点击一个技能令其进化...");
+					}
+				
+				document.getElementById("skill0").addEventListener("click", function(){
+					if(up === 0){
+						alert("请先选择要进化的技能");
+						act2 = 0;
+					}else{
+						if(act1>=1){//先判断是否有行动力
+							if(wx===1){//判断有无无形威胁
+								hp02 = hp02 - 150;
+								wx = 0;
+							}else{
+								hp02 = hp02 - 100;
+								}
+							document.getElementById('xkldz00').style.display = "none";//我方动画
+							document.getElementById('xkldz0').style.display = "block";
+							setTimeout(function(){
+								document.getElementById('xkldz0').style.display = "none";
+								document.getElementById('xkldz00').style.display = "block";
+								
+								document.getElementById('hp02').innerHTML=hp02;//动画结束后显示技能结果
+								document.getElementById('hp01').innerHTML=hp01;
+							}, 500);
+						}else{//没有行动力就不攻击，回复行动力至1.
+							act1=1;
+							}
+					}
+				});
+				
+				
+				document.getElementById('skill2').innerHTML="&#12288;&#12288;刺人&#12288;&#12288;";
+				document.getElementById("skill2").addEventListener("click", function(){
+					if(up === 0){
+						alert("进化：刺人");
+						up = 1;
+						act2 = 0;
+					}else if(up === 1){
+						if(act1>=1){//先判断是否有行动力
+							if(wx===1){//判断有无无形威胁
+								hp02 = hp02 - 250;
+								wx = 0;
+							}else{
+								hp02 = hp02 - 200;
+								}
+						document.getElementById('xkldz00').style.display = "none";//我方动画
+						document.getElementById('xkldz1').style.display = "block";
+						setTimeout(function(){
+							document.getElementById('xkldz1').style.display = "none";
+							document.getElementById('xkldz00').style.display = "block";
+							
+							document.getElementById('hp02').innerHTML=hp02;//动画结束后显示技能结果
+							document.getElementById('hp01').innerHTML=hp01;
+						}, 500);
+						}else{
+							act1=1;//没有行动力就不攻击，回复行动力至1.
+							}
+					}else{
+						if(act1>=1){//先判断是否有行动力
+							if(wx===1){//判断有无无形威胁
+								hp02 = hp02 - 200;
+								wx = 0;
+							}else{
+								hp02 = hp02 - 150;
+								}
+						document.getElementById('xkldz00').style.display = "none";//我方动画
+						document.getElementById('xkldz1').style.display = "block";
+						setTimeout(function(){
+							document.getElementById('xkldz1').style.display = "none";
+							document.getElementById('xkldz00').style.display = "block";
+							
+							document.getElementById('hp02').innerHTML=hp02;//动画结束后显示技能结果
+							document.getElementById('hp01').innerHTML=hp01;
+						}, 500);
+						}else{
+							act1=1;//没有行动力就不攻击，回复行动力至1.
+							}
+						}
+				});
+
+
+				document.getElementById('skill3').innerHTML="&#12288;&#12288;扔刺&#12288;&#12288;";
+				document.getElementById("skill3").addEventListener("click", function(){
+					if(up === 0){
+						alert("进化：扔刺");
+						up = 2;
+						act2 = 0;
+					}else if(up === 2){
+						if(act1>=1){//先判断是否有行动力
+							if(wx===1){//判断有无无形威胁
+								hp02 = hp02 - 150;
+								hp01 = hp01 + 50;
+								wx = 0;
+							}else{
+								hp02 = hp02 - 100;
+								hp01 = hp01 + 50;
+								}
+						document.getElementById('xkldz00').style.display = "none";//我方动画
+						document.getElementById('xkldz2').style.display = "block";
+						setTimeout(function(){
+							document.getElementById('xkldz2').style.display = "none";
+							document.getElementById('xkldz00').style.display = "block";
+							
+							document.getElementById('hp02').innerHTML=hp02;//动画结束后显示技能结果
+							document.getElementById('hp01').innerHTML=hp01;
+						}, 500);
+						}else{
+							act1=1;//没有行动力就不攻击，回复行动力至1.
+							}
+					}else{
+						if(act1>=1){//先判断是否有行动力
+							if(wx===1){//判断有无无形威胁
+								hp02 = hp02 - 100;
+								hp01 = hp01 + 50;
+								wx = 0;
+							}else{
+								hp02 = hp02 - 50;
+								hp01 = hp01 + 50;
+								}
+						document.getElementById('xkldz00').style.display = "none";//我方动画
+						document.getElementById('xkldz2').style.display = "block";
+						setTimeout(function(){
+							document.getElementById('xkldz2').style.display = "none";
+							document.getElementById('xkldz00').style.display = "block";
+							
+							document.getElementById('hp02').innerHTML=hp02;//动画结束后显示技能结果
+							document.getElementById('hp01').innerHTML=hp01;
+						}, 500);
+						}else{
+							act1=1;//没有行动力就不攻击，回复行动力至1.
+							}
+						}
+				});
+				
+				document.getElementById('skill4').innerHTML="&#12288;&#12288;潜行&#12288;&#12288;";
+				document.getElementById("skill4").addEventListener("click", function(){
+					if(up === 0){
+						alert("进化：潜行");
+						up = 3;
+						act2 = 0;
+					}else if(up === 3){
+						if(act1>=1){//先判断是否有行动力
+							wx = 1;
+							act2 = 0;
+						document.getElementById('xkldz00').style.display = "none";//我方动画
+						document.getElementById('xkldz3').style.display = "block";
+						setTimeout(function(){
+							document.getElementById('xkldz3').style.display = "none";
+							
+							document.getElementById('hp02').innerHTML=hp02;//动画结束后显示技能结果
+							document.getElementById('hp01').innerHTML=hp01;
+						}, 500);
+						}else{
+							act1=1;//没有行动力就不攻击，回复行动力至1.
+							}
+					}else{
+						if(act1>=1){//先判断是否有行动力
+							wx = 1;
+							act2 = 0;
+							pp = 0;
+						document.getElementById('skill4').style.pointerEvents = "none";//PP用尽→禁用技能四
+						
+						document.getElementById('xkldz00').style.display = "none";//我方动画
+						document.getElementById('xkldz3').style.display = "block";
+						setTimeout(function(){
+							document.getElementById('xkldz3').style.display = "none";
+							
+							document.getElementById('hp02').innerHTML=hp02;//动画结束后显示技能结果
+							document.getElementById('hp01').innerHTML=hp01;
+						}, 500);
+						}else{
+							act1=1;//没有行动力就不攻击，回复行动力至1.
+							}
+						}
+				});
+			
+			
+			
+			document.getElementById("skill0").addEventListener("click", levelup);
+			document.getElementById("skill2").addEventListener("click", levelup);
+			document.getElementById("skill3").addEventListener("click", levelup);
+			document.getElementById("skill4").addEventListener("click", levelup);
+			function levelup(){
+				if(hp02<=0){
+					hp01 = hp01 + 300;
+					hp02 = 800;
+					opponent = 2;
+					document.getElementById('p2p').src = "https://hbimg.huabanimg.com/268ba80758383822a0a651c2ba35130a6ac2a76a852-YfPeXx";
+					document.getElementById("name2").innerHTML="&#12288;&nbsp;克苏恩&nbsp;&#12288;";
+					setTimeout(function(){
+						alert("进入下一关");
+						document.getElementById('p2g').src = "https://hbimg.huabanimg.com/f3860de9856b86ec8d0d791348321baa4255f3454b0e-Hf2UhV";
+						document.getElementById('img00').src = "https://hbimg.huabanimg.com/9f4486f623c3e37a0538c8e368f008c390e467c126748-bUE1rK";//换技能介绍图
+					}, 600);
+				}
+			}
+			document.getElementById("skill0").addEventListener("click", toP2);
+			document.getElementById("skill2").addEventListener("click", toP2);
+			document.getElementById("skill3").addEventListener("click", toP2);
+			document.getElementById("skill4").addEventListener("click", toP2);
+			function toP2(){//对方的动作
+				if(opponent===1){//敌人类型，1是触须2是本体
+					if(act2>=1){
+						hp01 = hp01 - 100;
+					document.getElementById('p2p').style.display = "none";
+					document.getElementById('p2g').style.display = "block";
+					setTimeout(function(){
+						document.getElementById('p2g').style.display = "none";//敌方动画
+						document.getElementById('p2p').style.display = "block";
+						
+						document.getElementById('hp02').innerHTML=hp02;//动画结束后显示技能结果
+						document.getElementById('hp01').innerHTML=hp01;
+					}, 500);
+					}else{
+						act2=1;
+						}
+				}else{
+					if(act2>=1){
+						if(jsbt===3){
+							hp01 = hp01 - 150;
+							act1 = 0;
+							jsbt = 0;
+						}else{
+							hp01 = hp01 - 100;
+							jsbt = jsbt + 1;
+							}
+						
+					document.getElementById('p2p').style.display = "none";
+					document.getElementById('p2g').style.display = "block";
+					setTimeout(function(){
+						document.getElementById('p2g').style.display = "none";//敌方动画
+						document.getElementById('p2p').style.display = "block";
+						
+						document.getElementById('hp02').innerHTML=hp02;//动画结束后显示技能结果
+						document.getElementById('hp01').innerHTML=hp01;
+					}, 500);
+					}else{
+						act2=1;
+						}
+					}
+				time = time + 1;
+			}
+			
+			}
+		</script>
+	</head>
+	<body>
+		<div id="APP">
+			<div id="p1">
+				<div id="p1Top">
+					<img class="hero" id="hero1" src="https://hbimg.huabanimg.com/0a0b0b62f24c49150de52d48d7fa9f31f22155315dd-iUyO0S">
+					<div class="heroBack" id="heroBack1"></div>
+					<div class="p1name" id="p1name1">荒漠屠夫&nbsp;HP600</div>
+					<div class="p1look" id="p1look1" onclick="tolook1()">查看技能详情</div>
+					<div class="chose" id="chose1" onclick="chose1()">选择</div>
+					
+					<img class="hero" id="hero2" src="https://hbimg.huabanimg.com/08e093f4c15c6881c4db773117f6f5e8e5cb7fa0627-NrXH1d" >
+					<div class="heroBack" id="heroBack2"></div>
+					<div class="p1name" id="p1name2">虚空掠夺者&nbsp;HP450</div>
+					<div class="p1look" id="p1look2" onclick="tolook2()">查看技能详情</div>
+					<div class="chose" id="chose2" onclick="chose2()">选择</div>
+				</div>
+			</div>
+			
+			<div id="detail">
+				<img class="img" id="img1" onclick="over()" src="https://hbimg.huabanimg.com/d29554b234e29bd3b2b3c2145eeaf5e1764ff13e69ced-IHI7ek" >
+				<img class="img" id="img2" onclick="over()" src="https://hbimg.huabanimg.com/1b22636e1f7ffe5548801061aeea3640d544f8a65d0a4-53SAK3" >
+				<img class="img" id="img00" onclick="over()" src="https://hbimg.huabanimg.com/998f8049210d58e249b5e43516acfab44c69959c26734-vSX2Pm" >
+			</div>
+			
+			<div id="p2">
+				<div id="p2p2">
+					<div id="look2" onclick="tolook()">查看技能详情</div>
+					<div class="notuse" id="name2">克苏恩的触须</div>
+					<div class="notuse" id="hp2">HP:</div>
+					<div id="hp02">0</div>
+				</div>
+				<div id="field">
+					<div id="p2back"></div>
+					<img class="p2hero" id="hmtf2" src="https://hbimg.huabanimg.com/9e3ada1bb96a56bd2c887d0c26401e69b16e44755b6-bibv5V" >
+					<img class="p2hero" id="hmtf1" src="https://hbimg.huabanimg.com/e95beeac1ebf6fb57477e78c12b1e87b3baa3c6f2767-bBafZ2" >
+					<img class="p2hero" id="hmtf3" src="https://hbimg.huabanimg.com/6c63b6265ed6d20fc96d78bee7e7e7d64f6c8a3b2ece-SrxeU3" >
+					<img class="p2hero" id="hmtf4" src="https://hbimg.huabanimg.com/d2ac58b682536e59d15d5f14431fec7f5e25674a1347-naHaJP" >
+					<img class="p2hero" id="hmtf5" src="https://hbimg.huabanimg.com/35ffd36ad9d5c83fdd60259c5857de1b2c2705d931c8-NFCr8V" >
+					<img class="p2hero" id="xkldz00" src="https://hbimg.huabanimg.com/7cf65482e74397a584cd46a470f96800662ec192601-JmhN35" >
+					<img class="p2hero" id="xkldz0" src="https://hbimg.huabanimg.com/648e78f657c707c24ea0d578a66357bf170b083927df-VFmTA2" >
+					<img class="p2hero" id="xkldz1" src="https://hbimg.huabanimg.com/d60da36257433564822b8a4af2574abeff62e4022a2c-q40C3p" >
+					<img class="p2hero" id="xkldz2" src="https://hbimg.huabanimg.com/2028fb3ef08f72284eaf5dc56d3e124545aa572d2911-Mel9ud" >
+					<img class="p2hero" id="xkldz3" src="https://hbimg.huabanimg.com/b40d51ba090e5e936134e7f66d1b584a3713161819d2-r9YC0U" >
+					<img id="p2p" src="https://hbimg.huabanimg.com/a55791f35ee8106ecd84996ff6b4b89bea0efcc457f-auCFMG" >
+					<img id="p2g" src="https://hbimg.huabanimg.com/fa4d8abb657894ed4c6ecaf6bfaa70bfdc782d802770-Q9Bbxe" >
+				</div>
+				<div id="p2p1">
+					<div id="look1">查看技能详情</div>
+					<div class="notuse" id="name1"></div>
+					<div class="notuse" id="hp1">HP:</div>
+					<div id="hp01">0</div>
+					<div class="notuse" id="mp1">0</div>
+				</div>
+				<div id="skill">
+					<div id="skill0">普通攻击</div>
+					<div id="skill1">当前技能名称</div>
+					<div class="use" id="skill2">当前技能名称</div>
+					<div class="use" id="skill3">当前技能名称</div>
+					<div class="use" id="skill4">当前技能名称</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
